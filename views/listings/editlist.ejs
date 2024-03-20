@@ -13,6 +13,16 @@
                         Title good!
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="category" class="mr-2">Category:</label>
+                    <select id="category" name="list[category]" class="form-control">
+                        <% enumValues.forEach(val=> { %>
+                            <option value="<%= val %>">
+                                <%= val %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
                 <div class="form-group mb-3">
                     <label for="dec">Description:</label>
                     <input type="text" class="form-control" id="dec" name="list[dec]" value="<%= listingid.dec %>"
