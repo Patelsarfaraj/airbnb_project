@@ -39,6 +39,8 @@ module.exports.createlisting = async (req, res) => {
 }
 module.exports.editform = async (req, res) => {
     const { id } = req.params;
+    const enumValues = listingall.schema.path('category').enumValues
+
     const listingid = await listingall.findById(id);
     if (!listingid) {
         req.flash("error", "Listing not exist")
@@ -46,7 +48,7 @@ module.exports.editform = async (req, res) => {
     }
     let originalurl = listingid.image.url;
     originalurl = originalurl.replace("/upload", "/upload/w_200");
-    res.render("listings/editlist.ejs", { listingid, originalurl });
+    res.render("listings/editlist.ejs", { listingid, originalurl, enumValues });
 }
 module.exports.editlisting = async (req, res) => {
     const { id } = req.params;
