@@ -1,0 +1,72 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <body> <br><br>
+        <div class="row col-8 offset-2">
+
+            <h3>Create New Listing</h3>
+            <form action="/listings" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+                <div class="form-group mb-3">
+                    <label for="title">Title:</label>
+
+                    <input type="text" class="form-control" id="title" name="list[title]" required>
+                    <div class="valid-feedback">
+                        Title good!
+                    </div>
+
+                </div>
+                <div class="form-group mb-3">
+                    <label for="dec">Description:</label>
+
+                    <input type="text" class="form-control" id="dec" name="list[dec]" required>
+                    <div class="invalid-feedback">
+                        Enter Description
+                    </div>
+
+
+                </div>
+                <div class="row ">
+                    <div class="form-group mb-3 col-md-4">
+                        <label for="image">Image URL:</label>
+                        <input type="file" class="form-control" id="image" name="list[image]" required>
+                        <div class="invalid-feedback">
+                            Not found!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="mr-2">Category:</label>
+                        <select id="category" name="list[category]" class="form-control">
+                            <% enumValues.forEach(val=> { %>
+                                <option value="<%= val %>">
+                                    <%= val %>
+                                </option>
+                                <% }); %>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3 col-md-8">
+                        <label for="price">Price:</label>
+                        <input type="text" class="form-control" id="price" placeholder="Price" name="list[price]"
+                            required>
+                        <div class="invalid-feedback">
+                            Price Format invalid
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="location">Location:</label>
+                    <input type="text" class="form-control" id="location" name="list[location]" required>
+                    <div class="invalid-feedback">
+                        Location required
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="country">Country:</label>
+                    <input type="text" class="form-control" id="country" name="list[country]" required>
+                    <div class="invalid-feedback">
+                        Enter country
+                    </div>
+                </div><br><br>
+                <button type="submit" class="btn btn-primary btn-add">Add</button>
+            </form>
+        </div> <br><br>
+    </body>

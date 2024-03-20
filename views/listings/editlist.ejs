@@ -1,0 +1,70 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <body>
+        <div class="row mt-2 col-8 offset-2 mt-5">
+            <h3>Edit Listing</h3>
+            <form method="post" action="/listings/<%= listingid._id %>?_method=PUT" class="needs-validation"
+                enctype="multipart/form-data" novalidate>
+                <div class="form-group mb-3">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" name="list[title]" value="<%= listingid.title %>"
+                        required>
+                    <div class="valid-feedback">
+                        Title good!
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="dec">Description:</label>
+                    <input type="text" class="form-control" id="dec" name="list[dec]" value="<%= listingid.dec %>"
+                        required>
+                    <div class="invalid-feedback">
+                        Enter Description
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label for="price">Price:</label>
+                            <input type="text" class="form-control" id="price" value="<%= listingid.price %>"
+                                placeholder="Price" name="list[price]" required>
+                            <div class="invalid-feedback">
+                                Price Format invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label for="image">Image URL:</label>
+                            <input type="file" class="form-control" id="image" name="list[image]" required>
+                            <div class="invalid-feedback">
+                                Not found!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="<%= originalurl %>" alt="">
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="location">Location:</label>
+                    <input type="text" class="form-control" id="location" name="list[location]"
+                        value="<%= listingid.location %>" required>
+                    <div class="invalid-feedback">
+                        Location required
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="country">Country:</label>
+                    <input type="text" class="form-control" id="country" name="list[country]"
+                        value="<%= listingid.country %>" required>
+                    <div class="invalid-feedback">
+                        Enter country
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Update</button>
+            </form>
+        </div>
+
+    </body>

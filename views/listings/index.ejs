@@ -1,0 +1,101 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <body>
+        <!-- <h1>
+            List
+        </h1> -->
+        <!-- <form action="/listings/new" method="get">
+        <button type="submit">
+            create new list
+        </button>
+    </form> -->
+        <style>
+
+        </style>
+        <div class="filters">
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-fire"></i></div>
+                <p>Trends</p>
+            </div>
+
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-mountain"></i></div>
+                <p>Islands</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-water-ladder"></i></div>
+                <p>Amazing pools</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p>Beach</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castle</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Arctic</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-water"></i></div>
+                <p>Lake</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-igloo"></i></div>
+                <p>Domes</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-ship"></i></div>
+                <p>Boats</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-campground"></i></div>
+                <p>Campaing</p>
+            </div>
+            <div class="filter">
+                <div class=""><i class="fa-solid fa-cow"></i></div>
+                <p>Farms</p>
+            </div>
+            <div class="tag-toggle">
+               
+                    <div class="form-check-reverse form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">display total after taxes</label>
+                    </div>
+                
+            </div>
+
+        </div>
+
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+            <% for (const listing of alllist) { %>
+                <a href="/listings/<%= listing._id %>" class="showlink">
+                    <div class="card col list-card">
+                        <img class="card-img-top" style="height: 20rem;" src="<%= listing.image.url %>"
+                            alt="Card image listing">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <b>
+                                <p class="card-text">
+                                    <%= listing.title %>
+                            </b> <br>
+                            <%= listing.price.toLocaleString("en-IN")%>/night &nbsp;&nbsp; <i class="tax-info"> 18%
+                                    GST</i>
+                                </p>
+
+
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+
+        </div>
+
+    </body>
