@@ -24,7 +24,7 @@ const flash = require("connect-flash");
 const { error } = require('console');
 app.engine('ejs', engine);
 const dbUrl = process.env.ATLASDb;
-const mongoUrl = "mongodb://127.0.0.1:27017/wonderlus";
+
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
